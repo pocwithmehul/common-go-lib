@@ -165,6 +165,7 @@ func getStringSliceClaim(token jwt.Token, key string) []string {
 				result = append(result, s)
 			}
 		}
+		return result
 	}
 
 	return nil

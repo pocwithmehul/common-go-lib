@@ -60,10 +60,7 @@ func TestClientGetCollection(t *testing.T) {
 		db:     nil,
 	}
 
-	// Verify the method exists by checking client is properly initialized
-	if client == nil {
-		t.Error("expected client to be initialized")
-	}
+	_ = client
 }
 
 // TestClientGetDatabase tests retrieving the database instance
@@ -125,10 +122,7 @@ func TestInsertOneValidation(t *testing.T) {
 		db:     nil,
 	}
 
-	// Verify the method signature is callable (integration tests would verify actual insert)
-	if client == nil {
-		t.Error("expected client to be initialized")
-	}
+	_ = client
 }
 
 // TestConfigValidation tests that Config struct is properly defined

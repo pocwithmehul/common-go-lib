@@ -4,18 +4,9 @@ run:
 
 linters:
   enable:
-    - vet
+    - govet
     - gofmt
     - goimports
     - staticcheck
     - ineffassign
     - unused
-    - deadcode
-
-linters-settings:
-  typecheck:
-    check-blank: true
-    check-nil: true
-
-output:
-  format: github-actions

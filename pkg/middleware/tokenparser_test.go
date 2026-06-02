@@ -25,8 +25,12 @@ func newJWKServer(t *testing.T) (*httptest.Server, *rsa.PrivateKey) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	pubKey.Set(jwk.KeyIDKey, "test-key")
-	pubKey.Set(jwk.AlgorithmKey, jwa.RS256)
+	if err := pubKey.Set(jwk.KeyIDKey, "test-key"); err != nil {
+		t.Fatal(err)
+	}
+	if err := pubKey.Set(jwk.AlgorithmKey, jwa.RS256); err != nil {
+		t.Fatal(err)
+	}
 
 	set := jwk.NewSet()
 	if err := set.AddKey(pubKey); err != nil {
@@ -68,7 +72,9 @@ func signToken(t *testing.T, priv *rsa.PrivateKey, issuer string, audience []str
 	if err != nil {
 		t.Fatal(err)
 	}
-	jwkPriv.Set(jwk.KeyIDKey, "test-key")
+	if err := jwkPriv.Set(jwk.KeyIDKey, "test-key"); err != nil {
+		t.Fatal(err)
+	}
 
 	signed, err := jwt.Sign(token, jwt.WithKey(jwa.RS256, jwkPriv))
 	if err != nil {

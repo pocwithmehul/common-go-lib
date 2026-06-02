@@ -25,11 +25,6 @@ type Logger struct {
 	client  httputils.HTTPClient
 }
 
-type datadogLogPayload struct {
-	Message string                 `json:"message"`
-	Dd      map[string]interface{} `json:"dd"`
-}
-
 func NewLogger(service string, cfg DatadogConfig) *Logger {
 	return NewLoggerWithClient(service, cfg, http.DefaultClient)
 }
