@@ -95,7 +95,11 @@ func (l *Logger) emit(msg, level string, fields map[string]interface{}) {
 		fmt.Printf("datadog send error: %v\n", err)
 		return
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if closeErr := resp.Body.Close(); closeErr != nil {
+			fmt.Printf("datadog close error: %v\n", closeErr)
+		}
+	}()
 	if resp.StatusCode >= 300 {
 		fmt.Printf("datadog response status: %s\n", resp.Status)
 	}
