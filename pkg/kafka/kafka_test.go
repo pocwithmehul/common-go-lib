@@ -83,8 +83,8 @@ type fakeConsumerGroupClaim struct {
 }
 
 func (f *fakeConsumerGroupClaim) Topic() string              { return "events" }
-func (f *fakeConsumerGroupClaim) Partition() int32          { return 0 }
-func (f *fakeConsumerGroupClaim) InitialOffset() int64      { return 0 }
+func (f *fakeConsumerGroupClaim) Partition() int32           { return 0 }
+func (f *fakeConsumerGroupClaim) InitialOffset() int64       { return 0 }
 func (f *fakeConsumerGroupClaim) HighWaterMarkOffset() int64 { return 0 }
 func (f *fakeConsumerGroupClaim) Messages() <-chan *sarama.ConsumerMessage {
 	if f.ch == nil {
