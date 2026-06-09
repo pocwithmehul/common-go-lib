@@ -150,4 +150,3 @@ func TestNilClient(t *testing.T) {
 
 // Ensure fakeUnleashClient satisfies the interface at compile time.
 var _ unleashIface = (*fakeUnleashClient)(nil)
-
