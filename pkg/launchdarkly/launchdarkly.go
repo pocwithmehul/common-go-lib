@@ -5,8 +5,8 @@ import (
 	"os"
 	"time"
 
-	ld "github.com/launchdarkly/go-server-sdk/v7"
 	"github.com/launchdarkly/go-sdk-common/v4/ldcontext"
+	ld "github.com/launchdarkly/go-server-sdk/v7"
 )
 
 // Config holds LaunchDarkly client configuration.
